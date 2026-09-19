@@ -5,7 +5,7 @@
 
 typedef struct pokelista {
     pokemon atual;
-    pokemon* proximo;
+    pokelista* proximo;
 } pokelista;
 
 void inicializarpokelista(pokelista* head);
