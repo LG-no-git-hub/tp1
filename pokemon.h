@@ -37,6 +37,8 @@ void set_nome(pokemon* atual, char set[50]);
 
 void set_tipo(pokemon* atual, char set[25]);
 
+pokemon* inicializapokemon(pokemon* atual);
+
 void imprimepokemon(pokemon atual);
 
 #endif

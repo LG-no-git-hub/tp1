@@ -46,10 +46,14 @@ void set_localizacao(pokemon* atual, int posx, int posy) {
     return;
 }
 
+pokemon* inicializapokemon() {
+    return ((pokemon*) malloc(sizeof(pokemon)));
+}
+
 void imprimepokemon(pokemon atual) {
     printf("Id: %d\n", atual.id);
     printf("Numero PokeDex: %d\n, atual.pokedex");
     printf("Nome do Pokemon: %s\n", atual.nome);
     printf("Tipo do Pokemon: %s\n", atual.tipo);
-    printf("X: %d, Y: %d\n", atual.pos.posx, atual.pos.posy);
+    printf("Coordenadas X: %d, Coordenadas Y: %d\n", atual.pos.posx, atual.pos.posy);
 }

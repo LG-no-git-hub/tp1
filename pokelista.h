@@ -12,9 +12,9 @@ void inicializarpokelista(pokelista* head);
 
 void inserirpokelista(pokelista* head, pokemon aserinserido);
 
-void removerpokelista(pokelista* head, int ID_aserremovido);
+pokemon removerpokelista(pokelista* head, int ID_aserremovido);
 
-void buscapokelista(pokelista* head, int ID_parabusca);
+pokemon buscapokelista(pokelista* head, int ID_parabusca);
 
 void imprimirpokelista(pokelista* head);
 
