@@ -5,20 +5,20 @@
 
 typedef struct centro {
     localizacao fixa;
-    pokelista fugitivos;
-    pokelista recuperados;
+    pokelista* fugitivos;
+    pokelista* recuperados;
 } centro;
 
 void inicializacentro(centro* depokemon);
 
-void inserefugitivo(centro* depokemon);
+void inserefugitivo(centro* depokemon, pokemon fugitivo);
 
-void removefugitivo(centro* depokemon);
+void removefugitivo(centro* depokemon, int iddofugitivo);
 
-void imprimenrecuperado(centro* depokemon);
+void imprimerecuperado(centro* depokemon);
 
-void recebepokemon(centro* depokemon);
+void recebepokemon(centro* depokemon, pokemon recuperado);
 
-void recarregabolas(treinador* depokemon);
+int recarregabolas();
 
 #endif
