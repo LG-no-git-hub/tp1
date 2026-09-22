@@ -1,0 +1,28 @@
+#include "centro.h"
+
+void inicializacentro(centro* depokemon) {
+    depokemon -> fixa.posx = 0;
+    depokemon -> fixa.posy = 0;
+    inicializarpokelista(depokemon -> fugitivos);
+    inicializarpokelista(depokemon -> recuperados);
+}
+
+void inserefugitivo(centro* depokemon, pokemon fugitivo) {
+    inserirpokelista(depokemon -> fugitivos -> proximo, fugitivo);
+    return;
+}
+
+void removefugitivo(centro* depokemon, int iddofugitivo) {
+    removerpokelista(depokemon -> fugitivos -> proximo, iddofugitivo);
+}
+
+void imprimerecuperado(centro* depokemon) {
+    imprimirpokelista(depokemon -> recuperados);
+}
+
+int recarregabolas() {
+    int tempo = (int) time(NULL);
+    int RNG = (tempo % 20) + 1;
+    
+    return(RNG);
+}
