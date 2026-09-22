@@ -1,8 +1,4 @@
-#include "pokelista.h"
-
-void inicializasistema() {
-
-}
+#include "centro.h"
 
 void leitura() {
 
@@ -21,6 +17,13 @@ void imprimerelatorio() {
 }
 
 int main() {
+    centro AEDS;
+    inicializacentro(&AEDS);
+
+    treinador treinador1, treinador2;
+
+    FILE* entrada = NULL;
+    entrada = fopen("entrada.txt", "r");
 
     return 0;
 }
