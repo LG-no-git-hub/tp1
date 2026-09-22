@@ -7,7 +7,7 @@ typedef struct treinador {
     int id;
     char nome[50];
     localizacao local;
-    pokelista lista;
+    pokelista* lista;
     int pokebolas;
 } treinador;
 
