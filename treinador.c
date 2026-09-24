@@ -1,5 +1,14 @@
 #include "treinador.h"
 
+void inicializartreinador(treinador* quetreina, int identificador, char nomedotreinador[50], int qtdpokebolas) {
+    quetreina -> id = identificador;
+    quetreina -> nome = nomedotreinador;
+    inicializarpokelista(quetreina -> lista);
+    quetreina -> local.posx = 0; quetreina -> local.posy = 0;
+    quetreina -> pokebolas = qtdpokebolas
+    return;
+}
+
 void movimenta(treinador* quetreina, localizacao desejada) {
     quetreina -> local = desejada;
     return;
