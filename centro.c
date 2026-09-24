@@ -14,8 +14,8 @@ void inserefugitivo(centro* depokemon, pokemon fugitivo) {
     return;
 }
 
-void removefugitivo(centro* depokemon, int iddofugitivo) {
-    removerpokelista(depokemon -> fugitivos -> proximo, iddofugitivo);
+pokemon removefugitivo(centro* depokemon, int iddofugitivo) {
+    return removerpokelista(depokemon -> fugitivos -> proximo, iddofugitivo);
 }
 
 void imprimerecuperado(centro* depokemon) {

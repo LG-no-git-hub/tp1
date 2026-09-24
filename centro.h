@@ -13,7 +13,7 @@ void inicializacentro(centro* depokemon);
 
 void inserefugitivo(centro* depokemon, pokemon fugitivo);
 
-void removefugitivo(centro* depokemon, int iddofugitivo);
+pokemon removefugitivo(centro* depokemon, int iddofugitivo);
 
 void imprimerecuperado(centro* depokemon);
 

@@ -1,0 +1,11 @@
+========================================
+           INÍCIO DA MISSÃO
+========================================
+
+Treinador(a) Rosa: posição (0,0) | Pokébolas: 2
+Treinador(a) Nate: posição (0,0) | Pokébolas: 2
+
+Pokémons fugitivos a serem resgatados: 20
+
+----------------------------------------
+Pokémon alvo: AxewLocalização: (7, 7)
