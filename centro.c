@@ -3,6 +3,8 @@
 void inicializacentro(centro* depokemon) {
     depokemon -> fixa.posx = 0;
     depokemon -> fixa.posy = 0;
+    depokemon -> fugitivos = (pokelista*) malloc (sizeof(pokelista));
+    depokemon -> recuperados = (pokelista*) malloc (sizeof(pokelista));
     inicializarpokelista(depokemon -> fugitivos);
     inicializarpokelista(depokemon -> recuperados);
 }

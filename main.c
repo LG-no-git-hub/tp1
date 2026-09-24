@@ -21,7 +21,7 @@ void leitura_pokemon(FILE* stream, centro* AEDS) {
     fscanf(stream, "%d", &qtdpokemon);
     for (int i = 0; i < qtdpokemon; i ++) {
         aseradicionado.id = i + 1;
-        fscanf(stream, "%d %s %s %d %d", &aseradicionado.id, aseradicionado.nome, aseradicionado.tipo, &aseradicionado.pos.posx, &aseradicionado.pos.posy);
+        fscanf(stream, "%d %s %s %d %d", &aseradicionado.pokedex, aseradicionado.nome, aseradicionado.tipo, &aseradicionado.pos.posx, &aseradicionado.pos.posy);
         inserirpokelista(AEDS -> fugitivos, aseradicionado);
     }
 
@@ -43,10 +43,11 @@ void imprimerelatorio() {
 int main() {
     centro AEDS;
     inicializacentro(&AEDS);
-
+    printf("inicializou o AEDS\n");
     treinador treinador1, treinador2;
 
     FILE* entrada = NULL;
+
     entrada = fopen("entrada.txt", "r");
 
     leitura_treinadores(entrada, &treinador1, &treinador2);
@@ -55,6 +56,13 @@ int main() {
     imprimetreinador(&treinador1);
     imprimetreinador(&treinador2);
     imprimirpokelista(AEDS.fugitivos);
+
+    fclose(entrada);
+
+    FILE* saida = NULL;
+    fopen(saida, "saida.txt", "w");
+
+    getchar();
 
     return 0;
 }

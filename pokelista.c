@@ -2,7 +2,7 @@
 
 void inicializarpokelista(pokelista* head) {
     head -> atual.id = 0;
-    head -> atual.pokedex = 0;
+    head -> atual.pokedex = 0; 
     strcpy(head -> atual.nome, "HEAD");
     strcpy(head -> atual.tipo, "HEAD");
 
@@ -14,11 +14,10 @@ void inicializarpokelista(pokelista* head) {
 void inserirpokelista(pokelista* head, pokemon aserinserido) {
     pokelista* cadeado = head;
     pokelista* novo = (pokelista *) malloc(sizeof(pokelista));
+    novo -> proximo = NULL;
 
-    int i = 1;
     while (cadeado -> proximo != NULL) {
         cadeado = cadeado -> proximo;
-        i ++;
     }
 
     novo -> atual = aserinserido;
@@ -92,9 +91,22 @@ pokemon buscapokelista(pokelista* head, int ID_parabusca) {
 }
 
 void imprimirpokelista(pokelista* head) {
-    pokelista* cadeado = head -> proximo;
-    while (cadeado -> proximo != NULL) {
+    pokelista* cadeado;
+
+    if (head -> proximo != NULL) {
+        cadeado = head -> proximo;
+    }
+    else {
+        printf("(Vazia)\n");
+        return;
+    }
+
+    while (1) {
         imprimepokemon(cadeado -> atual);
         printf("====================\n");
+        if (cadeado -> proximo == NULL) {
+            break;
+        }
+        cadeado = cadeado -> proximo;
     }
 }
