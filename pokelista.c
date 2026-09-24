@@ -34,7 +34,7 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
     while (id != ID_aserremovido) {
         if (cadeado -> proximo == NULL) {
             printf("Erro! Índice não encontrado.");
-            return;
+            return cadeado -> atual;
         }
 
         cadeado = cadeado -> proximo;
@@ -80,8 +80,8 @@ pokemon buscapokelista(pokelista* head, int ID_parabusca) {
     pokelista* cadeado = head;
     while (id != ID_parabusca) {
         if (cadeado -> proximo == NULL) {
-            printf("Erro! Índice não encontrado.");
-            return;
+            printf("Erro! Índice não encontrado. Retornando ultimo elemento...");
+            return cadeado -> atual;
         }
 
         cadeado = cadeado -> proximo;

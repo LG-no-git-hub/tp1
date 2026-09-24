@@ -23,9 +23,9 @@ int get_id(pokemon atual);
 
 int get_pokedex(pokemon atual);
 
-char* get_nome(pokemon atual);
+char* get_nome(pokemon* atual);
 
-char* get_tipo(pokemon atual);
+char* get_tipo(pokemon* atual);
 
 localizacao get_localizacao(pokemon atual);
 
@@ -37,7 +37,7 @@ void set_nome(pokemon* atual, char set[50]);
 
 void set_tipo(pokemon* atual, char set[25]);
 
-pokemon* inicializapokemon(pokemon* atual);
+pokemon* inicializapokemon();
 
 void imprimepokemon(pokemon atual);
 

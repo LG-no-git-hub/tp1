@@ -8,12 +8,12 @@ int get_pokedex(pokemon atual) {
     return atual.pokedex;
 }
 
-char* get_nome(pokemon atual) {
-    return atual.nome;
+char* get_nome(pokemon* atual) {
+    return atual -> nome;
 }
 
-char* get_tipo(pokemon atual) {
-    return atual.tipo;
+char* get_tipo(pokemon* atual) {
+    return atual -> tipo;
 }
 
 localizacao get_localizacao(pokemon atual) {
@@ -52,7 +52,7 @@ pokemon* inicializapokemon() {
 
 void imprimepokemon(pokemon atual) {
     printf("Id: %d\n", atual.id);
-    printf("Numero PokeDex: %d\n, atual.pokedex");
+    printf("Numero PokeDex: %d\n", atual.pokedex);
     printf("Nome do Pokemon: %s\n", atual.nome);
     printf("Tipo do Pokemon: %s\n", atual.tipo);
     printf("Coordenadas X: %d, Coordenadas Y: %d\n", atual.pos.posx, atual.pos.posy);
