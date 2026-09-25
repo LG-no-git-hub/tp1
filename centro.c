@@ -37,6 +37,6 @@ localizacao get_local_c(centro* depokemon) {
     return depokemon -> fixa;
 }
 
-pokemon get_fugitivo(centro* depokemon) {
-    return depokemon -> fugitivos -> proximo -> atual;
+pokemon* get_fugitivo(centro* depokemon) {
+    return &depokemon -> fugitivos -> proximo -> atual;
 }

@@ -24,15 +24,15 @@ int get_id_p(pokemon atual);
 
 int get_pokedex(pokemon atual);
 
-char* get_nome_p(pokemon atual);
+char* get_nome_p(pokemon* atual);
 
-char* get_tipo(pokemon atual);
+char* get_tipo(pokemon* atual);
 
-localizacao get_local_p(pokemon atual);
+localizacao get_local_p(pokemon* atual);
 
-int get_local_px(pokemon atual);
+int get_local_px(pokemon* atual);
 
-int get_local_py(pokemon atual);
+int get_local_py(pokemon* atual);
 
 void set_id_p(pokemon* atual, int set);
 

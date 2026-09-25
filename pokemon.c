@@ -8,29 +8,25 @@ int get_pokedex(pokemon atual) {
     return atual.pokedex;
 }
 
-char* get_nome_p(pokemon atual) {
-    return atual.nome;
+char* get_nome_p(pokemon* atual) {
+    return atual -> nome;
 }
 
-char* get_tipo(pokemon atual) {
-    return atual.tipo;
+char* get_tipo(pokemon* atual) {
+    return atual -> tipo;
 }
 
-localizacao get_local_p(pokemon atual) {
-    return atual.pos;
+localizacao get_local_p(pokemon* atual) {
+    return atual -> pos;
 }
 
-int get_local_px(pokemon atual) {
-    return atual.pos.posx;
+int get_local_px(pokemon* atual) {
+    return atual -> pos.posx;
 }
 
-int get_local_py(pokemon atual) {
-    return atual.pos.posy;
+int get_local_py(pokemon* atual) {
+    return atual -> pos.posy;
 }
-
-/* foi optado por não utilizar as funções "set" no main porque a implementação delas tornaria
-o código mais complicado de se fazer e mais difícil de ler, optando-se por ler as informações 
-diretamente do arquivo de entrada. */
 
 void set_id_p(pokemon* atual, int set) {
     atual -> id = set;
@@ -48,7 +44,7 @@ void set_nome_p(pokemon* atual, char set[50]) {
 }
 
 void set_tipo(pokemon* atual, char set[25]) {
-    strcpy(atual -> nome, set);
+    strcpy(atual -> tipo, set);
     return;    
 }
 
@@ -66,9 +62,11 @@ pokemon inicializapokemon(FILE* stream, int id) {
     int posx, posy;
     fscanf(stream, "%d %s %s %d %d", &pokedex, nome, tipo, &posx, &posy);
     set_id_p(&aserinicializado, id);
+    set_pokedex(&aserinicializado, pokedex);
     set_nome_p(&aserinicializado, nome);
     set_tipo(&aserinicializado, tipo);
     set_localizacao_p(&aserinicializado, posx, posy);
+    
     return aserinicializado;
 }
 
