@@ -19,18 +19,17 @@ void leitura_pokemon(FILE* stream, centro* AEDS, int* qtdpokemon) {
     pokemon aseradicionado;
     fscanf(stream, "%d", qtdpokemon);
     for (int i = 0; i < *qtdpokemon; i ++) {
-        aseradicionado.id = i + 1;
-        fscanf(stream, "%d %s %s %d %d", &aseradicionado.pokedex, aseradicionado.nome, aseradicionado.tipo, &aseradicionado.pos.posx, &aseradicionado.pos.posy);
+        aseradicionado = inicializapokemon(stream, i + 1);
         inserefugitivo(AEDS, aseradicionado);
     }
 }
 
-void escreveinicio(treinador treinador1, treinador treinador2, int qtdpokemon) {
+void escreveinicio(treinador* treinador1, treinador* treinador2, int qtdpokemon) {
     printf("========================================\n");
     printf("           INÍCIO DA MISSÃO\n");
     printf("========================================\n\n");
-    printf("Treinador(a) %s: posição (0,0) | Pokébolas: %d\n", treinador1.nome, treinador1. pokebolas);
-    printf("Treinador(a) %s: posição (0,0) | Pokébolas: %d\n\n", treinador2.nome, treinador2. pokebolas);
+    printf("Treinador(a) %s: posição (0,0) | Pokébolas: %d\n", get_nome_t(treinador1), get_pokebolas(treinador1));
+    printf("Treinador(a) %s: posição (0,0) | Pokébolas: %d\n\n", get_nome_t(treinador2), get_pokebolas(treinador2));
     printf("Pokémons fugitivos a serem resgatados: %d\n\n", qtdpokemon);
 
     return;
@@ -40,12 +39,12 @@ void acionaretorno(centro* AEDS, treinador* depokemon) {
     int RNGpokebolas;
 
     printf("========================================\n");
-    printf("      Treinador(a) %s SEM POKÉBOLAS\n", depokemon -> nome);
+    printf("      Treinador(a) %s SEM POKÉBOLAS\n", get_nome_t(depokemon));
     printf("========================================\n\n");
 
-    printf("Treinador(a) %s retorna ao Centro de Pesquisa.\n\n", depokemon -> nome);
+    printf("Treinador(a) %s retorna ao Centro de Pesquisa.\n\n", get_nome_t(depokemon));
 
-    depokemon -> local = AEDS -> fixa;
+    set_local_t(depokemon, get_local_c(AEDS));
 
     printf("Entregando Pokémon ao Centro de Pesquisa.\n\n");
 
@@ -53,58 +52,50 @@ void acionaretorno(centro* AEDS, treinador* depokemon) {
 
     RNGpokebolas = recarregabolas();
 
-    depokemon -> pokebolas = RNGpokebolas;
+    set_pokebolas(depokemon, RNGpokebolas);
 
-    printf("Treinador(a) %s recebeu %d Pokébolas.\n\n", depokemon -> nome, RNGpokebolas);
+    printf("Treinador(a) %s recebeu %d Pokébolas.\n\n", get_nome_t(depokemon), RNGpokebolas);
 }
 
 void atribuicaptura(centro* AEDS, treinador* treinador1, treinador* treinador2) {
     int dx1, dx2, dy1, dy2;
     double dt1, dt2;
     printf("----------------------------------------\n");
-    printf("Pokémon alvo: %s\n", AEDS -> fugitivos -> proximo -> atual.nome);
-    printf("Localização: (%d, %d)\n\n", AEDS -> fugitivos -> proximo -> atual.pos.posx, AEDS -> fugitivos -> proximo -> atual.pos.posy);
+    printf("Pokémon alvo: %s\n", get_nome_p(get_fugitivo(AEDS)));
+    printf("Localização: (%d, %d)\n\n", get_local_px(get_fugitivo(AEDS)), get_local_py(get_fugitivo(AEDS)));
 
-    dx1 = (treinador1 -> local.posx) - (AEDS -> fugitivos -> proximo -> atual.pos.posx);
-    dx2 = (treinador2 -> local.posx) - (AEDS -> fugitivos -> proximo -> atual.pos.posx);
-    dy1 = (treinador1 -> local.posy) - (AEDS -> fugitivos -> proximo -> atual.pos.posy);
-    dy2 = (treinador2 -> local.posy) - (AEDS -> fugitivos -> proximo -> atual.pos.posy);
+    dx1 = (get_local_tx(treinador1)) - (get_local_px(get_fugitivo(AEDS)));
+    dx2 = (get_local_tx(treinador2)) - (get_local_px(get_fugitivo(AEDS)));
+    dy1 = (get_local_ty(treinador1)) - (get_local_py(get_fugitivo(AEDS)));
+    dy2 = (get_local_ty(treinador2)) - (get_local_py(get_fugitivo(AEDS)));
     
     dt1 = sqrt(pow(dx1, 2) + pow(dy1, 2));
     dt2 = sqrt(pow(dx2, 2) + pow(dy2, 2));
 
-    printf("Distância Treinador(a) %s: %.2llf\n", treinador1 -> nome, dt1);
-    printf("Distância Treinador(a) %s: %.2llf\n\n", treinador2 -> nome, dt2);
+    printf("Distância Treinador(a) %s: %.2llf\n", get_nome_t(treinador1), dt1);
+    printf("Distância Treinador(a) %s: %.2llf\n\n", get_nome_t(treinador2), dt2);
+
+    treinador* maisproximo;
 
     if (dt1 <= dt2) {
-        printf("Missão atribuída ao Treinador(a) %s\n\n", treinador1 -> nome);
-        printf("Treinador(a) %s se movimentou para (%d, %d).\n", treinador1 -> nome, AEDS -> fugitivos -> proximo -> atual.pos.posx, AEDS -> fugitivos -> proximo -> atual.pos.posy);
-        printf("%s capturado com sucesso!\n\n", AEDS -> fugitivos -> proximo -> atual.nome);
-
-        treinador1 -> local = AEDS -> fugitivos -> proximo -> atual.pos;
-        treinador1 -> pokebolas -= 1;
-
-        printf("Pokébolas restantes para o Treinador(a) %s: %d\n\n", treinador1 -> nome, treinador1 -> pokebolas);
-
-        if (treinador1 -> pokebolas == 0) {
-            acionaretorno(AEDS, treinador1);
-        }
-        inserirpokelista(treinador1 -> lista, removefugitivo(AEDS, 1));
+        maisproximo = treinador1;
     }
     else {
-        printf("Missão atribuída ao Treinador(a) %s\n\n", treinador2 -> nome);
-        printf("Treinador(a) %s se movimentou para (%d, %d).\n", treinador2 -> nome, AEDS -> fugitivos -> proximo -> atual.pos.posx, AEDS -> fugitivos -> proximo -> atual.pos.posy);
-        printf("%s capturado com sucesso!\n\n", AEDS -> fugitivos -> proximo -> atual.nome);
+        maisproximo = treinador2;
+    }
 
-        treinador2 -> local = AEDS -> fugitivos -> proximo -> atual.pos;
-        treinador2 -> pokebolas -= 1;
+    printf("Missão atribuída ao Treinador(a) %s\n\n", get_nome_t(maisproximo));
+    printf("Treinador(a) %s se movimentou para (%d, %d).\n", get_nome_t(maisproximo), get_local_px(get_fugitivo(AEDS)), get_local_py(get_fugitivo(AEDS)));
+    printf("%s capturado com sucesso!\n\n", get_nome_p(get_fugitivo(AEDS)));
 
-        printf("Pokébolas restantes para o Treinador(a) %s: %d\n\n", treinador2 -> nome, treinador2 -> pokebolas);
+    set_local_t(maisproximo, get_local_p(get_fugitivo(AEDS)));
 
-        if (treinador2 -> pokebolas == 0) {
-            acionaretorno(AEDS, treinador2);
-        }
-        inserirpokelista(treinador2 -> lista, removefugitivo(AEDS, 1));
+    captura(maisproximo, removefugitivo(AEDS, 1));
+
+    printf("Pokébolas restantes para o Treinador(a) %s: %d\n\n", get_nome_t(maisproximo), get_pokebolas(maisproximo));
+
+    if (get_pokebolas(maisproximo) == 0) {
+        acionaretorno(AEDS, maisproximo);
     }
     
     return;
@@ -129,7 +120,7 @@ int main() {
 
     fclose(entrada);
 
-    escreveinicio(treinador1, treinador2, qtdpokemon);
+    escreveinicio(&treinador1, &treinador2, qtdpokemon);
 
     FILE* saida;
     saida = fopen("relatorio.txt", "w");

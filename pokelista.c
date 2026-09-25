@@ -1,5 +1,8 @@
 #include "pokelista.h"
 
+/* A inicializarpokelista recebe um ponteiro para pokelista e altera seus campos.
+Isso é feito para evitar casos em que a pokelista é vazia. */
+
 void inicializarpokelista(pokelista* head) {
     head -> atual.id = 0;
     head -> atual.pokedex = 0; 
@@ -10,6 +13,11 @@ void inicializarpokelista(pokelista* head) {
 
     return;
 }
+
+/* Para inserir um pokemon à pokelista, é alocada a memória para um struct pokelista
+cujo endereço correspondente ao próximo item é NULL. Também é utilizado um "cadeado" que
+é responsável por armazenar o endereço de memória do último item da lista, cujo campo 
+"proximo" será igualado ao "novo".*/
 
 void inserirpokelista(pokelista* head, pokemon aserinserido) {
     pokelista* cadeado = head;

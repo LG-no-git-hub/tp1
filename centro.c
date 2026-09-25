@@ -32,3 +32,11 @@ int recarregabolas() {
     int RNG = (rand() % 20) + 1;
     return(RNG);
 }
+
+localizacao get_local_c(centro* depokemon) {
+    return depokemon -> fixa;
+}
+
+pokemon get_fugitivo(centro* depokemon) {
+    return depokemon -> fugitivos -> proximo -> atual;
+}
