@@ -14,8 +14,296 @@ Localização: (7, 7)
 Distância Treinador(a) Rosa: 9.90
 Distância Treinador(a) Nate: 9.90
 
-Missão atribuída ao(à) Treinador(a) Rosa
+Missão atribuída ao Treinador(a) Rosa
 
 Treinador(a) Rosa se movimentou para (7, 7).
 Axew capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 1
+
+----------------------------------------
+Pokémon alvo: Frogadier
+Localização: (10, 7)
+
+Distância Treinador(a) Rosa: 3.00
+Distância Treinador(a) Nate: 12.21
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (10, 7).
+Frogadier capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 0
+
+========================================
+      Treinador(a) Rosa SEM POKÉBOLAS
+========================================
+
+Treinador(a) Rosa retorna ao Centro de Pesquisa.
+
+Entregando Pokémon ao Centro de Pesquisa.
+
+Treinador(a) Rosa recebeu 15 Pokébolas.
+
+----------------------------------------
+Pokémon alvo: Turtwig
+Localização: (1, 1)
+
+Distância Treinador(a) Rosa: 1.41
+Distância Treinador(a) Nate: 1.41
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (1, 1).
+Turtwig capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 14
+
+----------------------------------------
+Pokémon alvo: Noivern
+Localização: (-10, -10)
+
+Distância Treinador(a) Rosa: 15.56
+Distância Treinador(a) Nate: 14.14
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-10, -10).
+Noivern capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 1
+
+----------------------------------------
+Pokémon alvo: Umbreon
+Localização: (5, 7)
+
+Distância Treinador(a) Rosa: 7.21
+Distância Treinador(a) Nate: 22.67
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (5, 7).
+Umbreon capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 13
+
+----------------------------------------
+Pokémon alvo: Pikachu
+Localização: (3, 4)
+
+Distância Treinador(a) Rosa: 3.61
+Distância Treinador(a) Nate: 19.10
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (3, 4).
+Pikachu capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 12
+
+----------------------------------------
+Pokémon alvo: Charmander
+Localização: (-5, 6)
+
+Distância Treinador(a) Rosa: 8.25
+Distância Treinador(a) Nate: 16.76
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (-5, 6).
+Charmander capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 11
+
+----------------------------------------
+Pokémon alvo: Squirtle
+Localização: (8, -3)
+
+Distância Treinador(a) Rosa: 15.81
+Distância Treinador(a) Nate: 19.31
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (8, -3).
+Squirtle capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 10
+
+----------------------------------------
+Pokémon alvo: Bulbasaur
+Localização: (-2, -4)
+
+Distância Treinador(a) Rosa: 10.05
+Distância Treinador(a) Nate: 10.00
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-2, -4).
+Bulbasaur capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 0
+
+========================================
+      Treinador(a) Nate SEM POKÉBOLAS
+========================================
+
+Treinador(a) Nate retorna ao Centro de Pesquisa.
+
+Entregando Pokémon ao Centro de Pesquisa.
+
+Treinador(a) Nate recebeu 15 Pokébolas.
+
+----------------------------------------
+Pokémon alvo: Eevee
+Localização: (6, 2)
+
+Distância Treinador(a) Rosa: 5.39
+Distância Treinador(a) Nate: 6.32
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (6, 2).
+Eevee capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 9
+
+----------------------------------------
+Pokémon alvo: Snorlax
+Localização: (-8, -6)
+
+Distância Treinador(a) Rosa: 16.12
+Distância Treinador(a) Nate: 10.00
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-8, -6).
+Snorlax capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 14
+
+----------------------------------------
+Pokémon alvo: Jigglypuff
+Localização: (2, -7)
+
+Distância Treinador(a) Rosa: 9.85
+Distância Treinador(a) Nate: 10.05
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (2, -7).
+Jigglypuff capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 8
+
+----------------------------------------
+Pokémon alvo: Pikachu
+Localização: (-4, 3)
+
+Distância Treinador(a) Rosa: 11.66
+Distância Treinador(a) Nate: 9.85
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-4, 3).
+Pikachu capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 13
+
+----------------------------------------
+Pokémon alvo: Gengar
+Localização: (-7, 8)
+
+Distância Treinador(a) Rosa: 17.49
+Distância Treinador(a) Nate: 5.83
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-7, 8).
+Gengar capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 12
+
+----------------------------------------
+Pokémon alvo: Lucario
+Localização: (9, -5)
+
+Distância Treinador(a) Rosa: 7.28
+Distância Treinador(a) Nate: 20.62
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (9, -5).
+Lucario capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 7
+
+----------------------------------------
+Pokémon alvo: Pikachu
+Localização: (-6, -2)
+
+Distância Treinador(a) Rosa: 15.30
+Distância Treinador(a) Nate: 10.05
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-6, -2).
+Pikachu capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 11
+
+----------------------------------------
+Pokémon alvo: Ralts
+Localização: (4, -8)
+
+Distância Treinador(a) Rosa: 5.83
+Distância Treinador(a) Nate: 11.66
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (4, -8).
+Ralts capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 6
+
+----------------------------------------
+Pokémon alvo: Gardevoir
+Localização: (-9, 5)
+
+Distância Treinador(a) Rosa: 18.38
+Distância Treinador(a) Nate: 7.62
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-9, 5).
+Gardevoir capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 10
+
+----------------------------------------
+Pokémon alvo: Garchomp
+Localização: (7, -9)
+
+Distância Treinador(a) Rosa: 3.16
+Distância Treinador(a) Nate: 21.26
+
+Missão atribuída ao Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (7, -9).
+Garchomp capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Rosa: 5
+
+----------------------------------------
+Pokémon alvo: Pikachu
+Localização: (-10, 10)
+
+Distância Treinador(a) Rosa: 25.50
+Distância Treinador(a) Nate: 5.10
+
+Missão atribuída ao Treinador(a) Nate
+
+Treinador(a) Nate se movimentou para (-10, 10).
+Pikachu capturado com sucesso!
+
+Pokébolas restantes para o Treinador(a) Nate: 9
 

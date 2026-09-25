@@ -23,8 +23,6 @@ void imprimerecuperado(centro* depokemon) {
 }
 
 int recarregabolas() {
-    int tempo = (int) time(NULL);
-    int RNG = (tempo % 20) + 1;
-    
+    int RNG = (rand() % 20) + 1;
     return(RNG);
 }
