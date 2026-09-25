@@ -17,7 +17,7 @@ pokemon removefugitivo(centro* depokemon, int iddofugitivo);
 
 void imprimerecuperado(centro* depokemon);
 
-void recebepokemon(centro* depokemon, pokemon recuperado);
+void recebepokemon(centro* AEDS, treinador* depokemon);
 
 int recarregabolas();
 

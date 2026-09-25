@@ -1,1 +1,0 @@
-gcc -o test.exe main.c pokemon.c pokelista.c treinador.c centro.c

@@ -18,6 +18,12 @@ pokemon removefugitivo(centro* depokemon, int iddofugitivo) {
     return removerpokelista(depokemon -> fugitivos, iddofugitivo);
 }
 
+void recebepokemon(centro* AEDS, treinador* depokemon) {
+    while (depokemon -> lista -> proximo != NULL) {
+        inserirpokelista(AEDS -> recuperados, removerpokelista(depokemon -> lista, 1));
+    }
+}
+
 void imprimerecuperado(centro* depokemon) {
     imprimirpokelista(depokemon -> recuperados);
 }
