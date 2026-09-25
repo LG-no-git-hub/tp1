@@ -10,12 +10,12 @@ void inicializacentro(centro* depokemon) {
 }
 
 void inserefugitivo(centro* depokemon, pokemon fugitivo) {
-    inserirpokelista(depokemon -> fugitivos -> proximo, fugitivo);
+    inserirpokelista(depokemon -> fugitivos, fugitivo);
     return;
 }
 
 pokemon removefugitivo(centro* depokemon, int iddofugitivo) {
-    return removerpokelista(depokemon -> fugitivos -> proximo, iddofugitivo);
+    return removerpokelista(depokemon -> fugitivos, iddofugitivo);
 }
 
 void imprimerecuperado(centro* depokemon) {

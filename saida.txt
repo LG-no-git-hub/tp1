@@ -8,4 +8,14 @@ Treinador(a) Nate: posição (0,0) | Pokébolas: 2
 Pokémons fugitivos a serem resgatados: 20
 
 ----------------------------------------
-Pokémon alvo: AxewLocalização: (7, 7)
+Pokémon alvo: Axew
+Localização: (7, 7)
+
+Distância Treinador(a) Rosa: 9.90
+Distância Treinador(a) Nate: 9.90
+
+Missão atribuída ao(à) Treinador(a) Rosa
+
+Treinador(a) Rosa se movimentou para (7, 7).
+Axew capturado com sucesso!
+

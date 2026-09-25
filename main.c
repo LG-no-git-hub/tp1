@@ -15,17 +15,14 @@ void leitura_treinadores(FILE* stream, treinador* treinador1, treinador* treinad
     return;
 }
 
-int leitura_pokemon(FILE* stream, centro* AEDS) {
-    int qtdpokemon;
+void leitura_pokemon(FILE* stream, centro* AEDS, int* qtdpokemon) {
     pokemon aseradicionado;
-    fscanf(stream, "%d", &qtdpokemon);
-    for (int i = 0; i < qtdpokemon; i ++) {
+    fscanf(stream, "%d", qtdpokemon);
+    for (int i = 0; i < *qtdpokemon; i ++) {
         aseradicionado.id = i + 1;
         fscanf(stream, "%d %s %s %d %d", &aseradicionado.pokedex, aseradicionado.nome, aseradicionado.tipo, &aseradicionado.pos.posx, &aseradicionado.pos.posy);
         inserefugitivo(AEDS, aseradicionado);
     }
-
-    return qtdpokemon;
 }
 
 void escreveinicio(FILE* saida, treinador treinador1, treinador treinador2, int qtdpokemon) {
@@ -61,30 +58,39 @@ void atribuicaptura(FILE* saida, centro* AEDS, treinador* treinador1, treinador*
         fprintf(saida, "Missão atribuída ao(à) Treinador(a) %s\n\n", treinador1 -> nome);
         fprintf(saida, "Treinador(a) %s se movimentou para (%d, %d).\n", treinador1 -> nome, AEDS -> fugitivos -> proximo -> atual.pos.posx, AEDS -> fugitivos -> proximo -> atual.pos.posy);
         fprintf(saida, "%s capturado com sucesso!\n\n", AEDS -> fugitivos -> proximo -> atual.nome);
+        treinador1 -> local = AEDS -> fugitivos -> proximo -> atual.pos;
+        treinador1 -> pokebolas -= 1;
+        if (treinador1 -> pokebolas == 0) {
+            acionaretorno(treinador1);
+        }
         inserirpokelista(treinador1 -> lista, removefugitivo(AEDS, 1));
     }
     else {
         fprintf(saida, "Missão atribuída ao(à) Treinador(a) %s\n\n", treinador2 -> nome);
         fprintf(saida, "Treinador(a) %s se movimentou para (%d, %d).\n", treinador2 -> nome, AEDS -> fugitivos -> proximo -> atual.pos.posx, AEDS -> fugitivos -> proximo -> atual.pos.posy);
         fprintf(saida, "%s capturado com sucesso!\n\n", AEDS -> fugitivos -> proximo -> atual.nome);
+        treinador2 -> local = AEDS -> fugitivos -> proximo -> atual.pos;
+        treinador2 -> pokebolas -= 1;
+        if (treinador1 -> pokebolas == 0) {
+            acionaretorno(treinador1);
+        }
         inserirpokelista(treinador2 -> lista, removefugitivo(AEDS, 1));
     }
     
     return;
 }
 
-void acionaretorno() {
+void acionaretorno(treinador* depokemon) {
 
 }
 
 void imprimerelatorio() {
-    
+
 }
 
 int main() {
     centro AEDS; int qtdpokemon;
     inicializacentro(&AEDS);
-    printf("inicializou o AEDS\n");
     treinador treinador1, treinador2;
 
     FILE* entrada = NULL;
@@ -92,7 +98,7 @@ int main() {
     entrada = fopen("entrada.txt", "r");
 
     leitura_treinadores(entrada, &treinador1, &treinador2);
-    qtdpokemon = leitura_pokemon(entrada, &AEDS);
+    leitura_pokemon(entrada, &AEDS, &qtdpokemon);
 
     imprimetreinador(&treinador1);
     imprimetreinador(&treinador2);
