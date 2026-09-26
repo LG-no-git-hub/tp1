@@ -25,4 +25,6 @@ localizacao get_local_c(centro* depokemon);
 
 pokemon* get_fugitivo(centro* depokemon);
 
+int semfugitivos(centro* depokemon);
+
 #endif

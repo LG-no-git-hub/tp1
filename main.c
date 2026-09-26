@@ -125,7 +125,7 @@ int main() {
     FILE* saida;
     saida = fopen("relatorio.txt", "w");
 
-    while (AEDS.fugitivos -> proximo != NULL) {
+    while (!semfugitivos(&AEDS)) {
         atribuicaptura(&AEDS, &treinador1, &treinador2);
     }
 

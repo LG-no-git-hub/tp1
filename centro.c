@@ -40,3 +40,7 @@ localizacao get_local_c(centro* depokemon) {
 pokemon* get_fugitivo(centro* depokemon) {
     return &depokemon -> fugitivos -> proximo -> atual;
 }
+
+int semfugitivos(centro* depokemon) {
+    return depokemon -> fugitivos -> proximo == NULL;
+}
