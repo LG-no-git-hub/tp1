@@ -135,6 +135,8 @@ void escrevefinal() {
 
 }
 
+/* Escreve no arquivo relatorio.txt as informações conforme foi especificado. */
+
 void imprimerelatorio() {
 
 }
