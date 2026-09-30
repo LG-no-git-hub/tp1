@@ -35,10 +35,23 @@ void inserirpokelista(pokelista* head, pokemon aserinserido) {
     return;
 }
 
+/* A função removerpokelista remove o pokémon de uma pokelista 
+conforme o índice dele. Além disso, ela retorna esse pokémon 
+porque as operações em que ela é chamada geralmente exigem que
+esse pokémon retornado va para algum outro lugar. */
+
 pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
     int id = 0;
     pokelista* cadeado = head;
+    
     while (id != ID_aserremovido) {
+        
+        /* Nesta implementação, o índice é só a posição que o
+        pokémon encontra-se na pokelista, e não tem muita relação
+        com o campo "id" do pokémon. Na verdade, todas as
+        chamadas desta função no main só mexem no primeiro pokémon
+        (não-head) de uma pokelista. */
+        
         if (cadeado -> proximo == NULL) {
             printf("Erro! Índice não encontrado.");
             return cadeado -> atual;
@@ -47,6 +60,12 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
         cadeado = cadeado -> proximo;
         id ++;
     }
+
+    /* Este bloco if lida com o caso em que o ID representa o último 
+    elemento da pokelista. Neste caso, o penúltimo elemento recebe o 
+    ponteiro NULL no atributo próximo e o último elemento tem a 
+    memória liberada. Além disso, é retornado o pokémon que foi 
+    removido. */
 
     if (cadeado -> proximo == NULL) {
         pokelista* anterior = head;
@@ -61,6 +80,12 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
 
         return deretorno;
     }
+        
+    /* Já este bloco if lida com remoções no meio da lista.
+    Nesse caso, o elemento anterior ao elemento que vai ser 
+    removido recebe o ponteiro do elemento que sucede o elemento que vai
+    ser removido. Paralelamente ao bloco anterior, é liberada a
+    memória e o pokémon removido é retornado. */
 
     else if (ID_aserremovido != 0) {
         pokelista* anterior = head;
@@ -69,7 +94,7 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
             anterior = anterior -> proximo;
         }
         for (int i = 0; i < ID_aserremovido + 1; i ++) {
-            sucessor = anterior -> proximo;
+            sucessor = sucessor -> proximo;
         }
 
         anterior -> proximo = sucessor -> proximo;
@@ -81,6 +106,9 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
         return deretorno;
     }
 }
+
+/* A função buscapokelista retorna o pokémon na posição 
+ID_parabusca na lista. */
 
 pokemon buscapokelista(pokelista* head, int ID_parabusca) {
     int id = 0;
@@ -97,6 +125,8 @@ pokemon buscapokelista(pokelista* head, int ID_parabusca) {
 
     return cadeado -> atual;
 }
+
+/* As funções de impressão foram utilizadas somente para testes. */
 
 void imprimirpokelista(pokelista* head) {
     pokelista* cadeado;
