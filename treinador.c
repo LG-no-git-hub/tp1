@@ -1,5 +1,9 @@
 #include "treinador.h"
 
+/* A função inicializatreinador inicializa o treinador com as variáveis
+que foram lidas do arquivo de entrada, centraliza a localização deles,
+aloca memória para a sua pokelista e inicializa ela. */
+
 void inicializartreinador(treinador* quetreina, int identificador, char nomedotreinador[50], int qtdpokebolas) {
     quetreina -> id = identificador;
     strcpy(quetreina -> nome, nomedotreinador);
@@ -10,11 +14,17 @@ void inicializartreinador(treinador* quetreina, int identificador, char nomedotr
     return;
 }
 
+/* A função de captura insere o pokemon que vai ser capturado
+na pokelista do treinador e subtrai uma pokebola da qtd. de
+pokebolas do treinador */
+
 void captura(treinador* quetreina, pokemon asercapturado) {
     inserirpokelista(quetreina -> lista, asercapturado);
     set_pokebolas(quetreina, get_pokebolas(quetreina) - 1);
     return;
 }
+
+/* As funções de impressão foram uitilizadas somente para testes. */
 
 void imprimetreinador(treinador* quetreina) {
     printf("ID do treinador: %d\n", quetreina -> id);
@@ -27,6 +37,9 @@ void imprimetreinador(treinador* quetreina) {
     return;
 }
 
+/* As funções get e set retornam os respectivos atributos do 
+treinador */
+
 int get_pokebolas(treinador* atual) {
     return atual -> pokebolas;
 }
@@ -34,6 +47,9 @@ int get_pokebolas(treinador* atual) {
 char* get_nome_t(treinador* atual) {
     return atual -> nome;
 }
+
+/* A função set_local_t é equivalente à função de mover 
+especificada no arquivo de especificação */
 
 void set_local_t(treinador* atual, localizacao lugar) {
     atual -> local = lugar;
