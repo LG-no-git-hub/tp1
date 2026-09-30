@@ -1,5 +1,8 @@
 #include "pokemon.h"
 
+/* As funções get e set do pokémon retribuem e atribuem os
+respectivos atributos dos pokémon. */
+
 int get_id_p(pokemon atual) {
     return atual.id;
 }
@@ -53,6 +56,11 @@ void set_localizacao_p(pokemon* atual, int posx, int posy) {
     atual -> pos.posy = posy;
     return;
 }
+
+/* A função inicializapokemon recebe o arquivo de entrada o
+ID que o pokémon escaneado é para ter, escaneia as informações
+do pokémon no arquivo de entrada conforme a especificação e 
+atribui elas ao pokémon. */
 
 pokemon inicializapokemon(FILE* stream, int id) {
     pokemon aserinicializado;
