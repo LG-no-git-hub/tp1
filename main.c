@@ -1,5 +1,8 @@
 #include "centro.h"
 
+/* A função leitura_treinadores realiza a leitura das informações
+dos treinadores conforme a especificação. */
+
 void leitura_treinadores(FILE* stream, treinador* treinador1, treinador* treinador2) {
     char nome[50];
     int pokebolas;
@@ -7,6 +10,11 @@ void leitura_treinadores(FILE* stream, treinador* treinador1, treinador* treinad
         if (fscanf(stream, "%s %d", nome, &pokebolas) == 2) {
             inicializartreinador(treinador1, 1, nome, pokebolas);
         }
+        
+        /* Como o fscanf salva a posição que lê, é possível
+        fazer isso sem preocupar com pular informações já 
+        escaneadas. */
+        
         if (fscanf(stream, "%s %d", nome, &pokebolas) == 2) {
             inicializartreinador(treinador2, 2, nome, pokebolas);
         }
@@ -14,6 +22,13 @@ void leitura_treinadores(FILE* stream, treinador* treinador1, treinador* treinad
 
     return;
 }
+
+/* A função leitura_pokemon realiza a leitura das informações
+dos pokémon. Primeiro ela lê a qtd. de pokémon conforme foi
+especificado que deveria estar no arquivo de entrada na 
+especificação. Depois, para cada linha, é chamada a função
+inicializapokemon. Finalmente, os pokémon lido são colocados 
+na lista de fugitivos do centro de pokémon. */
 
 void leitura_pokemon(FILE* stream, centro* AEDS, int* qtdpokemon) {
     pokemon aseradicionado;
@@ -23,6 +38,8 @@ void leitura_pokemon(FILE* stream, centro* AEDS, int* qtdpokemon) {
         inserefugitivo(AEDS, aseradicionado);
     }
 }
+
+/* Escreve o início da missão conforme foi especificado na especificação. */
 
 void escreveinicio(treinador* treinador1, treinador* treinador2, int qtdpokemon) {
     printf("========================================\n");
@@ -34,6 +51,10 @@ void escreveinicio(treinador* treinador1, treinador* treinador2, int qtdpokemon)
 
     return;
 }
+
+/* Escreve o que deve ser escrito no caso em que o retorno de um treinador
+para o centro de pesquisa é acionado e realiza as respectivas operações
+especificadas no arquivo de especificação. */
 
 void acionaretorno(centro* AEDS, treinador* depokemon) {
     int RNGpokebolas;
@@ -57,6 +78,12 @@ void acionaretorno(centro* AEDS, treinador* depokemon) {
     printf("Treinador(a) %s recebeu %d Pokébolas.\n\n", get_nome_t(depokemon), RNGpokebolas);
 }
 
+/* Escreve o que deve ser escrito na atribuição de uma captura à um 
+treinador e realiza as respectivas operações. No caso, a operação 
+principal é o cálculo da distância entre os treinadores e o 
+pokémon alvo. Além disso, o alvo é escolhido conforme a sua posição
+na lista de fugitivos. */
+
 void atribuicaptura(centro* AEDS, treinador* treinador1, treinador* treinador2) {
     int dx1, dx2, dy1, dy2;
     double dt1, dt2;
@@ -69,7 +96,7 @@ void atribuicaptura(centro* AEDS, treinador* treinador1, treinador* treinador2) 
     dy1 = (get_local_ty(treinador1)) - (get_local_py(get_fugitivo(AEDS)));
     dy2 = (get_local_ty(treinador2)) - (get_local_py(get_fugitivo(AEDS)));
     
-    dt1 = sqrt(pow(dx1, 2) + pow(dy1, 2));
+    dt1 = sqrt(pow(dx1, 2) + pow(dy1, 2)); // d^2 = x^2 + y^2
     dt2 = sqrt(pow(dx2, 2) + pow(dy2, 2));
 
     printf("Distância Treinador(a) %s: %.2llf\n", get_nome_t(treinador1), dt1);
@@ -107,7 +134,7 @@ void imprimerelatorio() {
 
 int main() {
     centro AEDS; int qtdpokemon; 
-    srand(time(NULL));
+    srand(time(NULL)); // Conforme está dito no centro.c, a seed para as pokebolas é time(NULL);
     inicializacentro(&AEDS);
     treinador treinador1, treinador2;
 
@@ -125,12 +152,18 @@ int main() {
     FILE* saida;
     saida = fopen("relatorio.txt", "w");
 
+    /* Como a função atribuicaptura não aciona a si mesma, foi decido
+    que enquanto houver fugitivos, a função será acionada. */
+
     while (!semfugitivos(&AEDS)) {
         atribuicaptura(&AEDS, &treinador1, &treinador2);
     }
 
     fclose(saida);
 
+    /* O getchar() está aqui para previnir que o terminal feche imediatamente
+    após o programa útil terminar. */
+    
     getchar();
 
     return 0;
