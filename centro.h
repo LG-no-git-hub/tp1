@@ -19,6 +19,8 @@ void imprimerecuperado(centro* depokemon);
 
 void recebepokemon(centro* AEDS, treinador* depokemon);
 
+void removerecuperado(centro* depokemon, int iddofugitivo) {
+
 int recarregabolas();
 
 localizacao get_local_c(centro* depokemon);
