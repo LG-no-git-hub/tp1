@@ -128,6 +128,13 @@ void atribuicaptura(centro* AEDS, treinador* treinador1, treinador* treinador2) 
     return;
 }
 
+/* Escreve o final da missão conforme foi especificado na especificação e realiza as operações
+especificadas. */
+
+void escrevefinal() {
+
+}
+
 void imprimerelatorio() {
 
 }
