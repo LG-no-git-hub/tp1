@@ -171,6 +171,17 @@ int main() {
 
     entrada = fopen("entrada.txt", "r");
 
+    /* Como não foi especificado qual é o nome do arquivo de entrada na especificação, optou-se de
+    que será "entrada.txt" */
+    
+    if (entrada == NULL) {
+        printf("Certifique-se de que o arquivo 'entrada.txt' existe e esteja na mesma pasta do que o .exe!\n\n");
+        printf("Aperte 'enter' para finalizar.\n");
+        getchar();
+
+        return 1;
+    }    
+
     leitura_treinadores(entrada, &treinador1, &treinador2);
     leitura_pokemon(entrada, &AEDS, &qtdpokemon);
 
@@ -197,7 +208,7 @@ int main() {
     /* O getchar() está aqui para previnir que o terminal feche imediatamente
     após o programa útil terminar. */
 
-    printf("Aperte 'enter' para sair.\n");
+    printf("Aperte 'enter' para finalizar.\n");
     
     getchar();
 
