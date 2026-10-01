@@ -97,7 +97,7 @@ pokemon removerpokelista(pokelista* head, int ID_aserremovido) {
             sucessor = sucessor -> proximo;
         }
 
-        anterior -> proximo = sucessor -> proximo;
+        anterior -> proximo = sucessor;
 
         pokemon deretorno = cadeado -> atual;
 
