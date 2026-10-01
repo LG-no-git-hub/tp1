@@ -7,6 +7,7 @@ test: $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -f *.o test
+	del /f /q *.o test.exe
 
-## Para compilar, escreva "make -f makefile"
+## Para compilar, digite no terminal "make -f makefile"
+## Para limpar os arquivos .o, digite no terminal "make clean"
