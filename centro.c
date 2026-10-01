@@ -35,7 +35,7 @@ void recebepokemon(centro* AEDS, treinador* depokemon) {
     }
 }
 
-void removerecuperado(centro* depokemon, int iddofugitivo) {
+pokemon removerecuperado(centro* depokemon, int iddofugitivo) {
     return removerpokelista(depokemon -> recuperados, iddofugitivo);
 }
 
