@@ -59,23 +59,24 @@ especificadas no arquivo de especificação. */
 void acionaretorno(centro* AEDS, treinador* depokemon) {
     int RNGpokebolas;
 
-    printf("========================================\n");
-    printf("      Treinador(a) %s SEM POKÉBOLAS\n", get_nome_t(depokemon));
-    printf("========================================\n\n");
-
-    printf("Treinador(a) %s retorna ao Centro de Pesquisa.\n\n", get_nome_t(depokemon));
-
     set_local_t(depokemon, get_local_c(AEDS));
-
-    printf("Entregando Pokémon ao Centro de Pesquisa.\n\n");
 
     recebepokemon(AEDS, depokemon);
 
-    RNGpokebolas = recarregabolas();
+    if (get_pokebolas(depokemon) == 0) {
+        printf("========================================\n");
+        printf("     Treinador(a) %s SEM POKÉBOLAS\n", get_nome_t(depokemon));
+        printf("========================================\n\n");
+        printf("Treinador(a) %s retorna ao Centro de Pesquisa.\n\n", get_nome_t(depokemon));
+        
+        RNGpokebolas = recarregabolas();
 
-    set_pokebolas(depokemon, RNGpokebolas);
+        printf("Entregando Pokémon ao Centro de Pesquisa.\n\n");
 
-    printf("Treinador(a) %s recebeu %d Pokébolas.\n\n", get_nome_t(depokemon), RNGpokebolas);
+        set_pokebolas(depokemon, RNGpokebolas);
+
+        printf("Treinador(a) %s recebeu %d Pokébolas.\n\n", get_nome_t(depokemon), RNGpokebolas);
+    }
 }
 
 /* Escreve o que deve ser escrito na atribuição de uma captura à um 
@@ -131,14 +132,33 @@ void atribuicaptura(centro* AEDS, treinador* treinador1, treinador* treinador2) 
 /* Escreve o final da missão conforme foi especificado na especificação e realiza as operações
 especificadas. */
 
-void escrevefinal() {
+void finalizamissao(centro* AEDS, treinador* treinador1, treinador* treinador2) {
+    printf("========================================\n");
+    printf("    Todos Pokémon foram resgatados\n");
+    printf("========================================\n\n");
+    printf("Ambos treinadores retornam ao Centro de Pesquisa.\n\n");
 
+    acionaretorno(AEDS, treinador1);
+    
+    printf("Treinador(a) %s devolve os Pokémon.\n\n", get_nome_t(treinador1));
+
+    acionaretorno(AEDS, treinador2);
+
+    printf("Treinador(a) %s devolve os Pokémon.\n\n", get_nome_t(treinador2));
+
+    printf("========================================\n");
+    printf("           MISSÃO CONCLUÍDA\n");
+    printf("========================================\n\n");
 }
 
 /* Escreve no arquivo relatorio.txt as informações conforme foi especificado. */
 
-void imprimerelatorio() {
-
+void imprimerelatorio(FILE* saida, centro* AEDS, int qtdepokemon) {
+    fprintf(saida, "Pokémon recuperados:\n");
+    for (int i = 0; i < qtdepokemon; i ++) {
+        pokemon temp = removerecuperado(AEDS, 1);
+        fprintf(saida, "%d %s\n", get_pokedex(temp), get_nome_p(&temp));
+    }
 }
 
 int main() {
@@ -168,10 +188,16 @@ int main() {
         atribuicaptura(&AEDS, &treinador1, &treinador2);
     }
 
+    finalizamissao(&AEDS, &treinador1, &treinador2);
+
+    imprimerelatorio(saida, &AEDS, qtdpokemon);
+
     fclose(saida);
 
     /* O getchar() está aqui para previnir que o terminal feche imediatamente
     após o programa útil terminar. */
+
+    printf("Aperte 'enter' para sair.\n");
     
     getchar();
 
