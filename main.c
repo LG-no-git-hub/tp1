@@ -62,8 +62,9 @@ void acionaretorno(centro* AEDS, treinador* depokemon) {
     set_local_t(depokemon, get_local_c(AEDS));
 
     recebepokemon(AEDS, depokemon);
-
-    if (get_pokebolas(depokemon) == 0) {
+    
+    if (semfugitivos(AEDS)) return;
+    else if (get_pokebolas(depokemon) == 0) {
         printf("========================================\n");
         printf("     Treinador(a) %s SEM POKÉBOLAS\n", get_nome_t(depokemon));
         printf("========================================\n\n");
